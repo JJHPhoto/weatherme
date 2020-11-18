@@ -1,3 +1,55 @@
+//My queary that gets the data for the city's weather.
+$("#add-city").on("click", function (event) {
+  event.preventDefault();
+
+  let city = $("#city-input").val();
+  let quearyURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&appid=27566e302a5e5d1096da211198689239";
+  console.log(city);
+  console.log(quearyURL);
+
+  // Loads today's weather for searched city.
+  $.ajax({
+    url: quearyURL,
+    method: "GET",
+  }).then(function (response) {
+    $("#saved-city").text(JSON.stringify(response));
+    console.log(response);
+  });
+});
+
+//Adds functionality to "enter" key.
+// Not working
+// let enter = $(".button");
+
+// enter.keydown(function (e) {
+//   if (e.which === 13) {
+//     e.preventDefault();
+//     displayMovieInfo(event);
+//   }
+// });
+
+//Remove after working
+//=====================
+// let cities = "";
+
+// // Function that renders new buttons when a city is searched for.
+// function renderCityButtons() {
+//   for (var i = 0; i < cities.length; i++) {
+//     var a = $("<button>");
+//     a.addClass("city");
+//     a.attr("data-name", cities[i]);
+//     $("#buttons-view").append(a);
+//   }
+// }
+
+// $("#cityBtn").on("click", function (event) {
+//   event.preventDefault();
+//   var city = $("#");
+// });
+
 //Functionality of my API that "works" with classes
 // $("#searchBtn").on("click", function (event) {
 //   event.preventDefault();
@@ -16,30 +68,6 @@
 //     console.log(response);
 //   });
 // });
-
-//Functionality of my API that "works" with ids
-$(".button").on("click", function (event) {
-  event.preventDefault();
-
-  var city = $(".input").val();
-  var quearyURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&appid=27566e302a5e5d1096da211198689239";
-  console.log(city);
-  console.log(quearyURL);
-
-  $.ajax({
-    url: quearyURL,
-    method: "GET",
-  }).then(function (response) {
-    $("#saved-city").text(JSON.stringify(response));
-    console.log(response);
-  });
-});
-
-//Remove after working
-//=====================
 
 // Testing Weather API calls
 // let city = "Seattle";

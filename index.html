@@ -21,18 +21,17 @@
     <div class="columns">
       <div class="column is-one-quarter ml-3 mt-3">
         <!--With ids-->
-        <!-- <form id="city-card">
-          <label for="city">Search the weather for a city:</label>
+        <form id="city-form">
+          <label for="city-input">Search the weather for a city:</label>
           <br>
+          <input type="text" id="city-input"><br>
 
-          <input type="text" id="city-search"><br>
-
-          <input id="searchBtn" type="submit" value="City Search">
+          <input id="add-city" type="submit" value="City Search">
         </form>
 
-        <div id="saved-city"></div> -->
+        <div id="saved-city"></div>
         <!--With classes-->
-       Search for a city
+       <!-- Search for a city
         <div class="field is-grouped">
           <p class="control is-expanded">
             <input class="input" type="text" placeholder="Search for a City:" />
@@ -40,36 +39,43 @@
           <p class="control">
             <a class="button is-info"> Search </a>
           </p>
-        </div>
+        </div> -->
         <!-- <input class="test" type="text" placeholder="Write buttons here."> -->
+        <!--Append buttons here-->
         <div id ="saved-city"></div>
       </div>
       <div class="column">
         Puts my city weather here 
         <section class="section">
           <div class="container">
-            <h1 class="title">Section</h1>
-            <h2 class="subtitle">
-              A simple container to divide your page into <strong>sections</strong>,
-              like the one you're currently reading
-            </h2>
+          <div id ="city-weather"></div>
           </div>
         </section>
         <div class="columns">
           <div class="column">
-            Day 1
+            <div id="dayOne">
+              Day 1
+            </div>
           </div>
           <div class="column">
-            Day 2
+            <div id="dayTwo">
+              Day 2
+            </div>
           </div>
           <div class="column">
-            Day 3
+            <div id ="dayThree">
+             Day 3
+            </div>
           </div>
           <div class="column">
-            Day 4
+            <div id="dayFour">
+              Day 4
+            </div>
           </div>
           <div class="column">
-            Day 5
+            <div id ="dayFive">
+              Day 5
+            </div>
           </div>
         </div>
       </div>
