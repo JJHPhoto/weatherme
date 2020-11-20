@@ -12,4 +12,3 @@ After I had my HTML wireframe in place, I started to pseudocode my JS. For me, b
 
 Open Weather API
 Bulma
-Boostrap
