@@ -1,10 +1,12 @@
-//My "on click" function that populates my page after I search.
+let cities = [];
+
+//On click function that populates the page after a user searches for a city's weather.
 $("#add-city").on("click", function (event) {
   event.preventDefault();
 
-  var city = $("#city-input").val();
+  let city = $("#city-input").val();
   console.log(city);
-  var quearyURL =
+  let quearyURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=27566e302a5e5d1096da211198689239";
@@ -16,19 +18,19 @@ $("#add-city").on("click", function (event) {
     cities.push(city);
     renderCityButtons();
     $("#city-name").text(response.name);
+    $("#city-temp").text(response.main.temp);
     $("#city-humidity").text(response.main.humidity);
+    $("#city-wind").text(response.wind.speed);
     console.log(response);
   });
 });
 
 //Renders city search into clickable buttons.
-var cities = [];
-
 function renderCityButtons() {
   $("#saved-city").empty();
 
-  for (var i = 0; i < cities.length; i++) {
-    var a = $("<button>");
+  for (let i = 0; i < cities.length; i++) {
+    let a = $("<button>");
     a.addClass("city");
     a.attr("data-name", cities[i]);
     a.text(cities[i]);
@@ -36,6 +38,7 @@ function renderCityButtons() {
   }
 }
 
+//Calling my city buttons to render
 renderCityButtons();
 
 //To Dos
