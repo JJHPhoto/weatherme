@@ -1,5 +1,6 @@
 let cities = [];
 let today = moment().format("MMMM Do, YYYY");
+const APIKey = "27566e302a5e5d1096da211198689239";
 // let icons = data.weather[0].icon;
 // let iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
 
@@ -12,7 +13,9 @@ $("#add-city").on("click", function (event) {
   let quearyURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
-    "&appid=27566e302a5e5d1096da211198689239";
+    "&appid=" +
+    APIKey +
+    "&units=imperial";
 
   $.ajax({
     url: quearyURL,
@@ -20,18 +23,10 @@ $("#add-city").on("click", function (event) {
   }).then(function (response) {
     cities.push(city);
     renderCityButtons();
-    $("#city-name").text(response.name);
-    $("#dateToday").text(today);
-    $("#city-temp").text(response.main.temp);
-    $("#city-humidity").text(response.main.humidity);
-    $("#city-wind").text(response.wind.speed);
-    // $(".icon").html("<img src='" + icons + "'>");
-
-    // $(".icon").html(
-    //   "<img src='http://openweathermap.org/img/w/" +
-    //     data.weather[0].icon +
-    //     ".png' alt='Icon depicting current weather.'>"
-    // );
+    $("#city-name").text(response.name + " " + today);
+    $("#city-temp").text("Temperature: " + response.main.temp + " °F");
+    $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
+    $("#city-wind").text("Wind Spped: " + response.wind.speed + " mph");
 
     console.log(response);
   });
