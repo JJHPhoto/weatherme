@@ -26,7 +26,7 @@ $("#add-city").on("click", function (event) {
     $("#city-name").text(response.name + " " + today);
     $("#city-temp").text("Temperature: " + response.main.temp + " °F");
     $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
-    $("#city-wind").text("Wind Spped: " + response.wind.speed + " mph");
+    $("#city-wind").text("Wind Speed: " + response.wind.speed + " mph");
 
     console.log(response);
   });
