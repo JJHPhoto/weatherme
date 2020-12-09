@@ -1,5 +1,7 @@
 # weatherme
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 My weather app using a weather API.
 
 ## 1. Worflow
@@ -10,11 +12,14 @@ After I had my HTML wireframe in place, I started to pseudocode my JS. For me, b
 
 My next step was to write the code that would call on the Weather API to get the weather data. I was able to easily able to get my call working. However, I ran into issues getting the buttons to render as well as have the right data show up. I worked on my code with my tutor and was able to get my city button to render from my search and the right data to show up. I worked on making sure my day forecast was good and moved on to finishing my code.
 
+I hadn't realized I was calling every 3 hours with my forecast query. A study group partner pointed out that. He showed me how to use a for loop to make sure you're getting a 5 day forecast as opposed to 5 forecasts every 3 hours.
+
 5 day
 
 Buttons
 
 ## 2. Resources
 
-Open Weather API
-Bulma
+- Open Weather API
+- Bulma
+- Study group
