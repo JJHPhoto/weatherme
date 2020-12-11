@@ -57,30 +57,32 @@ $("#add-city").on("click", function (event) {
         let date = responseTwo.list[i].dt_txt.split(" ")[0];
         let time = responseTwo.list[i].dt_txt.split(" ")[1];
         // console.log(time);
+        console.log(getForecast);
 
-        if (time === "12:00:00") {
-          $("#day" + getForecast)
-            .children("#date")
-            .text(date);
-          $("#icon" + getForecast).attr(
-            "src",
-            "http://openweathermap.org/img/w/" +
-              responseTwo.list[i].weather[0].icon +
-              ".png"
-          );
-          $("#day" + getForecast)
-            .children("#temp")
-            .text("Temperature: " + responseTwo.list[i].main.temp + " °F");
-          $("#day" + getForecast)
-            .children("#humidity")
-            .text("Humidity: " + responseTwo.list[i].main.humidity + "%");
-          $("#day" + getForecast)
-            .children("#wind")
-            .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
-          //not working?
-          // getForecast++;
-          // console.log(time);
-        }
+        // if (time === "12:00:00") {
+        $("#day" + getForecast)
+          .children("#date")
+          .text(date);
+        $("#icon" + getForecast).attr(
+          "src",
+          "http://openweathermap.org/img/w/" +
+            responseTwo.list[i].weather[0].icon +
+            ".png"
+        );
+        $("#day" + getForecast)
+          .children("#temp")
+          .text("Temperature: " + responseTwo.list[i].main.temp + " °F");
+        $("#day" + getForecast)
+          .children("#humidity")
+          .text("Humidity: " + responseTwo.list[i].main.humidity + "%");
+        $("#day" + getForecast)
+          .children("#wind")
+          .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
+        //not working?
+
+        // console.log(time);
+        // }
+        getForecast++;
       }
       // weatherForecast(responseTwo);
     });
