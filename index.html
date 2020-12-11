@@ -1,63 +1,81 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather Me</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <style type="text/css">
+      button,
+      div,
+      form,
+      input {
+        margin: 10px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Weather Me</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-  <style type="text/css">
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-    }
-  </style>
-</head>
-
-<body>
-  <section class="hero is-primary is bold">
-    <div class="hero-body">
-      <div class="container">
-        <!--Maybe put a logo with weahter/storm image as header-->
-        <h1 class="title has-text-centered">Weather Dashboard</h1>
-        <h2 class="subtitle has-text-centered">by Joshua Haller</h2>
-      </div>
-    </div>
-  </section>
-  <div class="columns">
-    <div class="column is-one-quarter ml-3 mt-3">
-      <form id="city-form">
-        <label for="city-input">Search the weather for a city:</label>
-        <br>
-        <input type="text" id="city-input"><br>
-
-        <input id="add-city" type="submit" value="City Search">
-      </form>
-
-      <div id="saved-city"></div>
-    </div>
-    <div class="column">
-      Puts my city weather here
-      <section class="section">
+  <body>
+    <section class="hero is-primary is bold">
+      <div class="hero-body">
         <div class="container">
-          <div id="city-name"></div>
-         <div id="city-temp"></div>
-          <div id="city-humidity"></div>
-          <div id="city-wind"></div>
-          <div id="city-UV"></div>
+          <h1 class="title has-text-centered">Weather Dashboard</h1>
+          <h2 class="subtitle has-text-centered">by Joshua Haller</h2>
         </div>
-      </section>
-      <div class="columns">
-        <div class="column">
-          <div id="five-day">Render 5 day forecast here</div>
+      </div>
+    </section>
+    <div class="columns">
+      <div class="column is-one-quarter ml-3 mt-3">
+        <form id="city-form">
+          <label for="city-input">Search the weather for a city:</label>
+          <br />
+          <input type="text" id="city-input" /><br />
+
+          <input id="add-city" type="submit" value="City Search" />
+        </form>
+
+        <div id="saved-city"></div>
+      </div>
+      <div class="column">
+        <p class="cityWeather">Today's Weather</p>
+        <section class="section">
+          <div class="container">
+            <div id="city-name"></div>
+            <div id="city-temp"></div>
+            <div id="city-humidity"></div>
+            <div id="city-wind"></div>
+            <div id="city-UV"></div>
+          </div>
+        </section>
+        <div class="columns">
+          <p class="forecast">Forecast</p>
+          <div class="column">
+            <div id="day1">
+              <div id="date"></div>
+              <img id="icon1" src="" />
+              <div id="temp"></div>
+              <div id="humidity"></div>
+              <div id="wind"></div>
+            </div>
+          </div>
+          <!--Not workin-->
+          <!-- <div class="column">
+            <div id="day2">
+              <div id="date"></div>
+              <img id="icon2" src="" />
+              <div id="temp"></div>
+              <div id="humidity"></div>
+              <div id="wind"></div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>

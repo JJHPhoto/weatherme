@@ -10,6 +10,11 @@ $("#add-city").on("click", function (event) {
   event.preventDefault();
 
   let city = $("#city-input").val();
+
+  JSON.stringify(city);
+  localStorage.setItem("city", city);
+  let savedCity = localStorage.getItem("city");
+  // console.log(savedCity);
   // console.log(city);
   let queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -17,15 +22,6 @@ $("#add-city").on("click", function (event) {
     "&appid=" +
     APIKey +
     "&units=imperial";
-
-  let queryURLTwo =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    city +
-    "&cnt=5" +
-    "&appid=" +
-    APIKey +
-    "&units=imperial";
-  // console.log(queryURLTwo);
 
   $.ajax({
     url: queryURL,
@@ -37,16 +33,60 @@ $("#add-city").on("click", function (event) {
     $("#city-temp").text("Temperature: " + response.main.temp + " °F");
     $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
     $("#city-wind").text("Wind Speed: " + response.wind.speed + " mph");
-    console.log(response);
-  });
+    // console.log(response);
 
-  $.ajax({
-    url: queryURLTwo,
-    method: "GET",
-  }).then(function (responseTwo) {
-    // cities.push(city);
-    $("#five-day").text(responseTwo.list);
-    console.log(responseTwo);
+    // function weatherForecast() {
+    let queryURLTwo =
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      city +
+      "&cnt=5" +
+      "&appid=" +
+      APIKey +
+      "&units=imperial";
+
+    $.ajax({
+      url: queryURLTwo,
+      method: "GET",
+    }).then(function (responseTwo) {
+      // console.log(responseTwo);
+      let getForecast = 1;
+      // console.log(getForecast);
+
+      for (var i = 0; i < responseTwo.list.length; i++) {
+        console.log(responseTwo.list[i].main);
+        let date = responseTwo.list[i].dt_txt.split(" ")[0];
+        let time = responseTwo.list[i].dt_txt.split(" ")[1];
+        // console.log(time);
+
+        if (time === "12:00:00") {
+          $("#day" + getForecast)
+            .children("#date")
+            .text(date);
+          $("#icon" + getForecast).attr(
+            "src",
+            "http://openweathermap.org/img/w/" +
+              responseTwo.list[i].weather[0].icon +
+              ".png"
+          );
+          $("#day" + getForecast)
+            .children("#temp")
+            .text("Temperature: " + responseTwo.list[i].main.temp + " °F");
+          $("#day" + getForecast)
+            .children("#humidity")
+            .text("Humidity: " + responseTwo.list[i].main.humidity + "%");
+          $("#day" + getForecast)
+            .children("#wind")
+            .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
+          //not working?
+          // getForecast++;
+          // console.log(time);
+        }
+      }
+      // weatherForecast(responseTwo);
+    });
+    // }
+    // weatherForecast(responseTwo);
+    // weatherForecast(response);
   });
 });
 
@@ -65,95 +105,3 @@ function renderCityButtons() {
 
 //Calling my city buttons to render
 renderCityButtons();
-
-//Five day forecast function
-
-// function forecast() {
-//   let queryURLTwo =
-//     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-//     city +
-//     "&appid=" +
-//     APIKey +
-//     "&units=imperial";
-//   // console.log(queryURLTwo);
-//   $.ajax({
-//     url: quearyURLTwo,
-//     method: "GET",
-//   }).then(function (responseTwo) {
-//     $("#five-day").text(responseTwo);
-//     console.log(responseTwo);
-//   });
-// }
-
-// forecast();
-// $("#add-city").on("click", function (event) {
-//   event.preventDefault();
-
-//   let cityForecast = $("#city-input").val();
-//   // console.log(cityForecast);
-//   let quearyURLTwo =
-//     "https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
-//     cityForecast +
-//     "&cnt=5&appid=" +
-//     APIKey +
-//     "&units=imperial";
-//   console.log(quearyURLTwo);
-
-//   $.ajax({
-//     url: quearyURLTwo,
-//     method: "GET",
-//   }).then(function (response) {
-//     cityFiveDay.push(cityForecast);
-//     $("#five-day").text(response);
-//   });
-// });
-
-//To Dos
-//=========
-//Finish my day forcast (need temperature (formulat needed), wind, uv index, weather icon, date)
-//Add my 5 day forecast (next 5 days (weather icon, date, temp & humidity)) to 5 cards.
-
-//not working
-//======
-
-// let lat =;
-// let lon =;
-// let UVindex = () => {
-//   let quearyUV =
-//     "https://api.openweathermap.org/data/2.5/uvi?lat=" +
-//     lat +
-//     "&lon=" +
-//     lon +
-//     APIKey +
-//     "&units=imperial";
-//   //need to connect to my click somehow.
-//   let lat = response.city.coord.lat;
-//   let lon = response.city.coord.lon;
-
-//   $.ajax({
-//     url: quearyUV,
-//     method: "GET",
-//   }).then(function (response) {
-//     $("#city-UV").text(response.value);
-//   });
-// };
-
-// let quearyUV =
-// "https://api.openweathermap.org/data/2.5/uvi?lat=" +
-// lat +
-// "&lon=" +
-// lon +
-// APIKey +
-// "&units=imperial";
-// // //need to connect to my click somehow.
-// let lat =;
-// let lon =;
-
-// $.ajax({
-// url: quearyUV,
-// method: "GET",
-// }).then(function (responseUV) {
-// $("#city-UV").text(responseUV.value);
-// });
-// let lat = response.city.coord.lat;
-// let lon = response.city.coord.lon;
