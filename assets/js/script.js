@@ -1,7 +1,6 @@
 let cities = [];
 let today = moment().format("MMMM Do, YYYY");
 const APIKey = "27566e302a5e5d1096da211198689239";
-// let cityFiveDay = [];
 // let icons = data.weather[0].icon;
 // let iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
 
@@ -58,10 +57,8 @@ $("#add-city").on("click", function (event) {
       for (var i = 0; i < responseTwo.list.length; i++) {
         console.log(responseTwo.list[i].main);
         let date = responseTwo.list[8 * i].dt_txt.split(" ")[0];
-        // let time = responseTwo.list[i].dt_txt.split(" ")[1];
         console.log(getForecast);
 
-        // if (time === "12:00:00") {
         $("#day" + getForecast)
           .children("#date")
           .text(date);
@@ -80,10 +77,7 @@ $("#add-city").on("click", function (event) {
         $("#day" + getForecast)
           .children("#wind")
           .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
-        // }
         getForecast++;
-
-        //response.list with an array of
       }
     });
   });
