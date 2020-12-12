@@ -56,7 +56,6 @@ $("#add-city").on("click", function (event) {
         console.log(responseTwo.list[i].main);
         let date = responseTwo.list[i].dt_txt.split(" ")[0];
         let time = responseTwo.list[i].dt_txt.split(" ")[1];
-        // console.log(time);
         console.log(getForecast);
 
         // if (time === "12:00:00") {
@@ -78,17 +77,10 @@ $("#add-city").on("click", function (event) {
         $("#day" + getForecast)
           .children("#wind")
           .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
-        //not working?
-
-        // console.log(time);
         // }
         getForecast++;
       }
-      // weatherForecast(responseTwo);
     });
-    // }
-    // weatherForecast(responseTwo);
-    // weatherForecast(response);
   });
 });
 
