@@ -33,13 +33,16 @@ $("#add-city").on("click", function (event) {
     $("#city-temp").text("Temperature: " + response.main.temp + " °F");
     $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
     $("#city-wind").text("Wind Speed: " + response.wind.speed + " mph");
+    // $("#city-icon")attr("src","http://openweathermap.org/img/w/" +
+    // response.weather[0].icon +
+    // ".png")
     // console.log(response);
 
     // function weatherForecast() {
     let queryURLTwo =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
-      "&cnt=5" +
+      // "&cnt=5" +
       "&appid=" +
       APIKey +
       "&units=imperial";
@@ -54,8 +57,8 @@ $("#add-city").on("click", function (event) {
 
       for (var i = 0; i < responseTwo.list.length; i++) {
         console.log(responseTwo.list[i].main);
-        let date = responseTwo.list[i].dt_txt.split(" ")[0];
-        let time = responseTwo.list[i].dt_txt.split(" ")[1];
+        let date = responseTwo.list[8 * i].dt_txt.split(" ")[0];
+        // let time = responseTwo.list[i].dt_txt.split(" ")[1];
         console.log(getForecast);
 
         // if (time === "12:00:00") {
@@ -79,6 +82,8 @@ $("#add-city").on("click", function (event) {
           .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
         // }
         getForecast++;
+
+        //response.list with an array of
       }
     });
   });
