@@ -12,14 +12,19 @@ After I had my HTML wireframe in place, I started to pseudocode my JS. For me, b
 
 My next step was to write the code that would call on the Weather API to get the weather data. I was able to easily able to get my call working. However, I ran into issues getting the buttons to render as well as have the right data show up. I worked on my code with my tutor and was able to get my city button to render from my search and the right data to show up. I worked on making sure my day forecast was good and moved on to finishing my code.
 
-I hadn't realized I was calling every 3 hours with my forecast query. A study group partner pointed out that. He showed me how to use a for loop to make sure you're getting a 5 day forecast as opposed to 5 forecasts every 3 hours.
-
-5 day
+I hadn't realized I was calling every 3 hours with my forecast query. A study group partner pointed out that. He showed me how to use a for loop to make sure you're getting a 5 day forecast as opposed to 5 forecasts every 3 hours. I took this to my tutor and he pointed out a mistake I was making. This got me to be able to have the correct forecast for 5 days. Which left me with the last bit of this homework assignment: local storage! Sigh.
 
 Buttons
 
 ## 2. Resources
 
-- Open Weather API
-- Bulma
-- Study group
+[Open Weather API](https://openweathermap.org/)
+
+[Boostrap](https://getbootstrap.com/)
+
+My Study group:
+
+- [Ian](https://github.com/Ianaac27)
+- [Macz](https://github.com/macz-norton)
+- [Thomas](https://github.com/Tskading)
+- [Zac](https://github.com/themancalledzac)
