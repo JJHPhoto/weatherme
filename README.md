@@ -20,7 +20,7 @@ Buttons
 
 [Open Weather API](https://openweathermap.org/)
 
-[Boostrap](https://getbootstrap.com/)
+[Bulma](https://bulma.io/)
 
 My Study group:
 
