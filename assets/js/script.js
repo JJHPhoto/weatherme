@@ -38,15 +38,16 @@ $("#add-city").on("click", function (event) {
     $("#city-temp").text("Temperature: " + response.main.temp + " °F");
     $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
     $("#city-wind").text("Wind Speed: " + response.wind.speed + " mph");
-    // $("#city-icon")attr("src","http://openweathermap.org/img/w/" +
-    // response.weather[0].icon +
-    // ".png")
+    $("#city-icon").attr(
+      "src",
+      "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
+    );
     // console.log(response);
 
     let longtitude = response.coord.lon;
     let latitude = response.coord.lat;
-    console.log(longtitude);
-    console.log(latitude);
+    // console.log(longtitude);
+    // console.log(latitude);
 
     //UV Index Queary
     let queryUV =
@@ -57,7 +58,7 @@ $("#add-city").on("click", function (event) {
       "&appid=" +
       APIKey +
       "&units=imperial";
-    console.log(queryUV);
+    // console.log(queryUV);
 
     $.ajax({
       url: queryUV,
