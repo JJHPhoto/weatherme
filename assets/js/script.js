@@ -10,11 +10,17 @@ $("#add-city").on("click", function (event) {
 
   let city = $("#city-input").val();
 
+  //Added for localStorage
+  // let entry = { userInput: userInput };
+  // localStorage.setItem("entry", JSON.stringify(entry));
+  //commented out for test
   JSON.stringify(city);
   localStorage.setItem("city", city);
   let savedCity = localStorage.getItem("city");
   // console.log(savedCity);
   // console.log(city);
+
+  //Query for today's weather.
   let queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -27,7 +33,7 @@ $("#add-city").on("click", function (event) {
     method: "GET",
   }).then(function (response) {
     cities.push(city);
-    renderCityButtons();
+    // renderCityButtons();
     $("#city-name").text(response.name + " " + today);
     $("#city-temp").text("Temperature: " + response.main.temp + " °F");
     $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
@@ -37,11 +43,34 @@ $("#add-city").on("click", function (event) {
     // ".png")
     // console.log(response);
 
-    // function weatherForecast() {
+    let longtitude = response.coord.lon;
+    let latitude = response.coord.lat;
+    console.log(longtitude);
+    console.log(latitude);
+
+    //UV Index Queary
+    let queryUV =
+      "https://api.openweathermap.org/data/2.5/uvi?lat=" +
+      latitude +
+      "&lon=" +
+      longtitude +
+      "&appid=" +
+      APIKey +
+      "&units=imperial";
+    console.log(queryUV);
+
+    $.ajax({
+      url: queryUV,
+      method: "GET",
+    }).then(function (UV) {
+      console.log(UV);
+      $("#city-UV").text("UV Index " + UV.value);
+    });
+
+    // Query for forecast.
     let queryURLTwo =
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
       city +
-      // "&cnt=5" +
       "&appid=" +
       APIKey +
       "&units=imperial";
@@ -55,9 +84,9 @@ $("#add-city").on("click", function (event) {
       // console.log(getForecast);
 
       for (var i = 0; i < responseTwo.list.length; i++) {
-        console.log(responseTwo.list[i].main);
+        // console.log(responseTwo.list[i].main);
         let date = responseTwo.list[8 * i].dt_txt.split(" ")[0];
-        console.log(getForecast);
+        // console.log(getForecast);
 
         $("#day" + getForecast)
           .children("#date")
@@ -80,8 +109,18 @@ $("#add-city").on("click", function (event) {
         getForecast++;
       }
     });
+
+    renderCityButtons();
   });
 });
+
+// Trying to get localStorage up
+// function loadCity() {
+//   let storedCity = localStorage.getItem("entry");
+//   let savedCity = JSON.parse(storedCity);
+//   let showCity = savedCity.userInput;
+//   document.getElementById("#saved-city").innerHTML = showCity;
+// }
 
 //Renders city search into clickable buttons.
 function renderCityButtons() {
