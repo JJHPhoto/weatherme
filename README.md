@@ -23,3 +23,7 @@ Buttons
 [Open Weather API](https://openweathermap.org/)
 
 [Bulma](https://bulma.io/)
+
+## 3. Contributor
+
+[Thomas](https://github.com/Tskading) spent many hours chatting and going over my code to get it working.
