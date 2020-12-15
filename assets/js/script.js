@@ -19,99 +19,6 @@ $("#add-city").on("click", function (event) {
   // console.log(city);
 
   cityQuery(city);
-
-  //Query for today's weather.
-  // let queryURL =
-  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
-  //   city +
-  //   "&appid=" +
-  //   APIKey +
-  //   "&units=imperial";
-
-  // $.ajax({
-  //   url: queryURL,
-  //   method: "GET",
-  // }).then(function (response) {
-  //   cities.push(city);
-  //   // renderCityButtons();
-  //   $("#city-name").text(response.name + " " + today);
-  //   $("#city-temp").text("Temperature: " + response.main.temp + " °F");
-  //   $("#city-humidity").text("Humidity: " + response.main.humidity + "%");
-  //   $("#city-wind").text("Wind Speed: " + response.wind.speed + " mph");
-  //   $("#city-icon").attr(
-  //     "src",
-  //     "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
-  //   );
-  //   // console.log(response);
-
-  //   let longtitude = response.coord.lon;
-  //   let latitude = response.coord.lat;
-  //   // console.log(longtitude);
-  //   // console.log(latitude);
-
-  //   //UV Index Queary
-  //   let queryUV =
-  //     "https://api.openweathermap.org/data/2.5/uvi?lat=" +
-  //     latitude +
-  //     "&lon=" +
-  //     longtitude +
-  //     "&appid=" +
-  //     APIKey +
-  //     "&units=imperial";
-  //   // console.log(queryUV);
-
-  //   $.ajax({
-  //     url: queryUV,
-  //     method: "GET",
-  //   }).then(function (UV) {
-  //     console.log(UV);
-  //     $("#city-UV").text("UV Index " + UV.value);
-  //   });
-
-  //   // Query for forecast.
-  //   let queryURLTwo =
-  //     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-  //     city +
-  //     "&appid=" +
-  //     APIKey +
-  //     "&units=imperial";
-
-  //   $.ajax({
-  //     url: queryURLTwo,
-  //     method: "GET",
-  //   }).then(function (responseTwo) {
-  //     // console.log(responseTwo);
-  //     let getForecast = 1;
-  //     // console.log(getForecast);
-
-  //     for (var i = 0; i < responseTwo.list.length; i++) {
-  //       // console.log(responseTwo.list[i].main);
-  //       let date = responseTwo.list[8 * i].dt_txt.split(" ")[0];
-  //       // console.log(getForecast);
-
-  //       $("#day" + getForecast)
-  //         .children("#date")
-  //         .text(date);
-  //       $("#icon" + getForecast).attr(
-  //         "src",
-  //         "http://openweathermap.org/img/w/" +
-  //           responseTwo.list[i].weather[0].icon +
-  //           ".png"
-  //       );
-  //       $("#day" + getForecast)
-  //         .children("#temp")
-  //         .text("Temperature: " + responseTwo.list[i].main.temp + " °F");
-  //       $("#day" + getForecast)
-  //         .children("#humidity")
-  //         .text("Humidity: " + responseTwo.list[i].main.humidity + "%");
-  //       $("#day" + getForecast)
-  //         .children("#wind")
-  //         .text("Wind: " + responseTwo.list[i].main.humidity + "mph");
-  //       getForecast++;
-  //     }
-  //   });
-
-  //   renderCityButtons();
 });
 // });
 
@@ -208,14 +115,6 @@ function cityQuery(city) {
     renderCityButtons();
   });
 }
-
-// Trying to get localStorage up
-// function loadCity() {
-//   let storedCity = localStorage.getItem("entry");
-//   let savedCity = JSON.parse(storedCity);
-//   let showCity = savedCity.userInput;
-//   document.getElementById("#saved-city").innerHTML = showCity;
-// }
 
 //Renders city search into clickable buttons.
 function renderCityButtons() {

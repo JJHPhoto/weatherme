@@ -18,14 +18,18 @@ I hadn't realized I was calling every 3 hours with my forecast query. A study gr
 
 Next I created a query for my UV index data. This was a bit weird to me because I was trying to get the data from my weather query, but I quickly realized I needed to create another query for that information. It turned out to be a lot easier than I expected it to. I was thinking I would have to get the longtitud and latitude in some complex way. Digging into my weather queary, I saw that I was getting those points inside that call. So, I created a variable that got those from my city call and then passed those into my UV index call. It was really nice to see it just make sense.
 
-Buttons
+To deconstruct my code, I put my 3 queries into a function and then called that function inside of my on click event listener. I had tried this before but after working with a friend on the code, I realized I was doing it in the wrong order. Once I got that working, I had local storage as my final part of the homework.
 
-## 3. Resources
+I knew this was going to be an issue as I had issues with local storage the last time we did this. Since I was so far behind with the homework, it was a bit unfamiliar to me again. I could put data into local storage, but I was confused as to how to store the correct data with my buttons. Working with a friend, we were able to check if there were searches in local storage, if not we'd return an empty array. If there were, we'd get those searches and populate the page with those as buttons.
+
+## 3. Gif of working application
+
+## 4. Resources
 
 [Open Weather API](https://openweathermap.org/)
 
 [Bulma](https://bulma.io/)
 
-## 4. Contributor
+## 5. Contributor
 
-[Thomas](https://github.com/Tskading) spent many hours chatting and going over my code to get it working.
+[Thomas](https://github.com/Tskading) spent many hours chatting and going over my code to get me pointed in the right direction.
