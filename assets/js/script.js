@@ -1,8 +1,6 @@
 let cities = [];
 let today = moment().format("MMMM Do, YYYY");
 const APIKey = "27566e302a5e5d1096da211198689239";
-// let icons = data.weather[0].icon;
-// let iconUrl = "http://openweathermap.org/img/w/" + icons + ".png";
 
 //On click function that populates the page after a user searches for a city's weather.
 $("#add-city").on("click", function (event) {

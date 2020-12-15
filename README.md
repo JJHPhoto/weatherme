@@ -2,9 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-My weather app using a weather API.
+## 1. How to Use
 
-## 1. Worflow
+A weather app for the days when we will once again travel. You'll see today's weather for the city you search for along with a 5 day forecast.
+
+## 2. Worflow
 
 The first thing I did was do a wireframe off of the image we were given in class. I then went to Bulma to start getting elements to make up my page.
 
@@ -18,12 +20,12 @@ Next I created a query for my UV index data. This was a bit weird to me because 
 
 Buttons
 
-## 2. Resources
+## 3. Resources
 
 [Open Weather API](https://openweathermap.org/)
 
 [Bulma](https://bulma.io/)
 
-## 3. Contributor
+## 4. Contributor
 
 [Thomas](https://github.com/Tskading) spent many hours chatting and going over my code to get it working.
