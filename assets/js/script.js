@@ -20,7 +20,6 @@ $("#add-city").on("click", function (event) {
 
   cityQuery(city);
 });
-// });
 
 function cityQuery(city) {
   //Query for today's weather from Open Weather API
@@ -119,14 +118,24 @@ function cityQuery(city) {
 //Renders city search into clickable buttons.
 function renderCityButtons() {
   $("#saved-city").empty();
+  const getSearches = localStorage.getItem("searches");
+  const searchesJSON = JSON.parse(getSearches) || [];
+  console.log(searchesJSON);
 
-  for (let i = 0; i < cities.length; i++) {
+  searchesJSON.forEach((search) => {
     let a = $("<button>");
     a.addClass("city");
-    a.attr("data-name", cities[i]);
-    a.text(cities[i]);
+    a.text(search);
+    const searchFunction = () => cityQuery(search);
+    a.click(searchFunction);
     $("#saved-city").append(a);
-  }
+  });
+  //   let a = $("<button>");
+  //   a.addClass("city");
+  //   a.attr("data-name", cities[i]);
+  //   a.text(cities[i]);
+  //   $("#saved-city").append(a);
+  // }
 }
 
 //Calling my city buttons to render
