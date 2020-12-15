@@ -8,15 +8,18 @@ $("#add-city").on("click", function (event) {
 
   let city = $("#city-input").val();
 
-  //Added for localStorage
-  // let entry = { userInput: userInput };
-  // localStorage.setItem("entry", JSON.stringify(entry));
-  //commented out for test
-  JSON.stringify(city);
-  localStorage.setItem("city", city);
-  let savedCity = localStorage.getItem("city");
-  // console.log(savedCity);
-  // console.log(city);
+  //Getting and adding to local storage.
+  const grabSearches = localStorage.getItem("searches");
+
+  let savedSearches = [];
+  const searchesParse = JSON.parse(grabSearches);
+  if (searchesParse) {
+    savedSearches = searchesParse;
+  }
+
+  savedSearches.push(city);
+  const searches = JSON.stringify(savedSearches);
+  localStorage.setItem("searches", searches);
 
   cityQuery(city);
 });
@@ -115,14 +118,14 @@ function cityQuery(city) {
   });
 }
 
-//Renders city search into clickable buttons.
+//Renders buttons based on cities searched. Also includes searches in local storage
 function renderCityButtons() {
   $("#saved-city").empty();
   const getSearches = localStorage.getItem("searches");
-  const searchesJSON = JSON.parse(getSearches) || [];
-  console.log(searchesJSON);
+  const grabSearches = JSON.parse(getSearches) || [];
+  console.log(grabSearches);
 
-  searchesJSON.forEach((search) => {
+  grabSearches.forEach((search) => {
     let a = $("<button>");
     a.addClass("city");
     a.text(search);
@@ -130,13 +133,7 @@ function renderCityButtons() {
     a.click(searchFunction);
     $("#saved-city").append(a);
   });
-  //   let a = $("<button>");
-  //   a.addClass("city");
-  //   a.attr("data-name", cities[i]);
-  //   a.text(cities[i]);
-  //   $("#saved-city").append(a);
-  // }
 }
 
-//Calling my city buttons to render
+//Calling city buttons to render to page
 renderCityButtons();

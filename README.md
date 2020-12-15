@@ -1,12 +1,22 @@
-# weatherme
+# [weatherme](https://jjhphoto.github.io/weatherme/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 1. How to Use
+## 1. How to use the application.
 
-A weather app for the days when we will once again travel. You'll see today's weather for the city you search for along with a 5 day forecast.
+To use the app:
 
-## 2. Worflow
+- Go to the [live link](https://jjhphoto.github.io/weatherme/) in your browser.
+- Use the "City Search" to look up the weather of the city you're in or want to know about.
+- You will see today's weather for the searched city as well as a 5 day forecast.
+- A clickable button will appear below "City Search". You can use this button to search for that city's weather again.
+- You add a clickable button each time you search for a new city. Each button will return that city's current weather and a 5 day forecast.
+
+## 2. Demo of working application
+
+![](weatherAPPDemo.gif)
+
+## 3. My worflow
 
 The first thing I did was do a wireframe off of the image we were given in class. I then went to Bulma to start getting elements to make up my page.
 
@@ -22,9 +32,7 @@ To deconstruct my code, I put my 3 queries into a function and then called that 
 
 I knew this was going to be an issue as I had issues with local storage the last time we did this. Since I was so far behind with the homework, it was a bit unfamiliar to me again. I could put data into local storage, but I was confused as to how to store the correct data with my buttons. Working with a friend, we were able to check if there were searches in local storage, if not we'd return an empty array. If there were, we'd get those searches and populate the page with those as buttons.
 
-## 3. Gif of working application
-
-## 4. Resources
+## 4. Resources used
 
 [Open Weather API](https://openweathermap.org/)
 
