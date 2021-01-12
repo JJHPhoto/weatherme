@@ -14,7 +14,7 @@ To use the app:
 
 ## 2. Demo of working application
 
-![](weatherAPPDemo.gif)
+![](weatherAppDemo.gif)
 
 ## 3. My worflow
 
